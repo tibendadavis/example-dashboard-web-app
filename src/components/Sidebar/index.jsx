@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 
 import SideBarItem from './sidebar-item';
@@ -9,10 +9,10 @@ import LogoutIcon from '../../assets/icons/logout.svg';
 import { useNavigate } from 'react-router-dom';
 import { clear } from '@testing-library/user-event/dist/clear';
 
-function SideBar ({ menu }) {
+function SideBar({ menu }) {
     const location = useLocation();
     const [active, setActive] = useState(1);
-    const[accepted, setaccepted] = useState(false)
+    const [accepted, setaccepted] = useState(false);
     const nav = useNavigate()
 
     useEffect(() => {
@@ -49,16 +49,16 @@ function SideBar ({ menu }) {
             if (window.sessionStorage.getItem('auth-token') == authToken) {
                 console.log('good token. Log in.')
                 window.sessionStorage.setItem('auth-token', clear);
-                setaccepted(false)
+                setaccepted(true)
                 nav("/");
             } else {
                 console.log('bad token.')
             }
         }
-        
+
     }
 
-    return !accepted? (<></>):(
+    return accepted ? (
         <nav className='sidebar'>
             <div className='sidebar-container'>
                 <div className='sidebar-logo-container'>
@@ -80,17 +80,17 @@ function SideBar ({ menu }) {
 
                     <div className=' '>
                         <button onClick={handleLogout} className="text-center text-white font-sans font-bold flex mx-auto px-3 py-2 my-6 bg-blue-900 rounded-lg">
-                        <span className=''>Logout</span>
-                        <img 
-                            src={LogoutIcon}
-                            alt='icon-logout'
-                            className=' ' />
-                            </button>
+                            <span className=''>Logout</span>
+                            <img
+                                src={LogoutIcon}
+                                alt='icon-logout'
+                                className=' ' />
+                        </button>
                     </div>
                 </div>
             </div>
         </nav>
-    )
+    ) : (<></>)
 }
 
 export default SideBar;

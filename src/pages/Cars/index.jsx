@@ -86,13 +86,12 @@ function Cars() {
                 setCars(sliceData(res.data.cars, new_page, 15));
                 console.log("checking.....")
             })
-
     }
 
     return !accepted ? (<></>) : (
         <div className=' ml-0'>
 
-            <div className='dashboard-content-container'>
+            <div className='dashboard-content-container w-fit'>
                 <div className='dashboard-content-header'>
                     <h2>Car List</h2>
                     <div className='dashboard-content-search'>

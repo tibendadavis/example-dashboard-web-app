@@ -99,7 +99,7 @@ const AddBlog = () => {
                     <div>
                         <tr className=" font-sans font-semibold text-xl">TITLE: <input className=" p-3" type="text" value={title} onChange={handleChange1} required /></tr>
                         <tr className=" font-sans font-semibold p-2 text-xl">DESCRIPITION: </tr><textarea
-                            rows="10"
+                            rows="15"
                             className=" w-2/4 p-2"
                             value={description}
                             onChange={handleChange2}
